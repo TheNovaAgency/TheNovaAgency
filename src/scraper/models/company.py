@@ -109,3 +109,41 @@ class CompanySearchQuery:
             "postcode": self.postcode,
             "radius_km": self.radius_km,
         }
+
+
+@dataclass
+class PostcodeSearchQuery:
+    postcode: str
+    radius_km: float = 1.0
+
+    def __post_init__(self) -> None:
+        self.postcode = self.postcode.strip().upper().replace(" ", "")
+        self.radius_km = max(0.1, float(self.radius_km))
+
+    def is_valid(self) -> bool:
+        return bool(self.postcode)
+
+    def to_dict(self) -> dict[str, Any]:
+        return {
+            "postcode": self.postcode,
+            "radius_km": self.radius_km,
+        }
+
+
+@dataclass
+class TownSearchQuery:
+    town: str
+    radius_km: float = 10.0
+
+    def __post_init__(self) -> None:
+        self.town = self.town.strip()
+        self.radius_km = max(0.1, float(self.radius_km))
+
+    def is_valid(self) -> bool:
+        return bool(self.town)
+
+    def to_dict(self) -> dict[str, Any]:
+        return {
+            "town": self.town,
+            "radius_km": self.radius_km,
+        }
