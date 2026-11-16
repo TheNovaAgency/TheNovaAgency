@@ -39,6 +39,5 @@ Thumbs.db
 dmypy.json
 .pyre/
 
-# Brand kit: keep token/manifest JSON, skip build scratch
+# Brand kit: keep token/manifest JSON
 !brand-kit/**/*.json
-brand-kit/_build/

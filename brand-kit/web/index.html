@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nova — Coming Soon</title>
+<meta name="description" content="The Nova Agency. Technical, modern web design and marketing — relaunching soon.">
+<meta name="theme-color" content="#0A0607" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F7F3F0" media="(prefers-color-scheme: light)">
+<meta property="og:title" content="Nova — Coming Soon">
+<meta property="og:description" content="The Nova Agency. Technical, modern web design and marketing — relaunching soon.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thenovaagency.com/">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<script>
+  /* Apply a stored theme choice before first paint. */
+  try { var t = localStorage.getItem('nova-theme'); if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+</script>
+<style>
+  /* Theme tokens: identical to brand-kit/tokens/tokens.css (dark default, OS light, data-theme override). */
+  :root,[data-theme="dark"]{
+    --bg:#0A0607;--surface:#1B1315;--surface-2:#241A1C;--line:#2E2325;--line-strong:#4A3B3D;
+    --text:#F4EDE8;--text-2:#B8A7A2;--text-3:#8E7D79;
+    --accent:#FF4B2B;--accent-hover:#FF6B4F;--accent-text:#FF4B2B;--on-accent:#0A0607;
+    --ember:#FFB547;--ember-text:#FFB547;
+    --mark-frame:#FF4B2B;--mark-star:#FF4B2B;
+    --success:#5BD08A;--warning:#FFB547;--danger:#FF6B5E;--focus:#FFB547;
+    --hatch:rgba(244,237,232,.07);
+    color-scheme:dark;
+  }
+  @media (prefers-color-scheme: light){
+    :root:not([data-theme="dark"]){
+      --bg:#F7F3F0;--surface:#FFFFFF;--surface-2:#EFE8E3;--line:#E0D6D0;--line-strong:#C9BBB4;
+      --text:#0A0607;--text-2:#5E504C;--text-3:#7A6A66;
+      --accent:#FF4B2B;--accent-hover:#FF6B4F;--accent-text:#C42A0E;--on-accent:#0A0607;
+      --ember:#FFB547;--ember-text:#8A5300;
+      --mark-frame:#0A0607;--mark-star:#D92E10;
+      --success:#1E7A46;--warning:#8A5300;--danger:#C42A0E;--focus:#C42A0E;
+      --hatch:rgba(10,6,7,.07);
+      color-scheme:light;
+    }
+  }
+  [data-theme="light"]{
+    --bg:#F7F3F0;--surface:#FFFFFF;--surface-2:#EFE8E3;--line:#E0D6D0;--line-strong:#C9BBB4;
+    --text:#0A0607;--text-2:#5E504C;--text-3:#7A6A66;
+    --accent:#FF4B2B;--accent-hover:#FF6B4F;--accent-text:#C42A0E;--on-accent:#0A0607;
+    --ember:#FFB547;--ember-text:#8A5300;
+    --mark-frame:#0A0607;--mark-star:#D92E10;
+    --success:#1E7A46;--warning:#8A5300;--danger:#C42A0E;--focus:#C42A0E;
+    --hatch:rgba(10,6,7,.07);
+    color-scheme:light;
+  }
+
+  :root{--ease:cubic-bezier(.16,1,.3,1);--sans:'Space Grotesk',ui-sans-serif,system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;--gutter:clamp(16px,4vw,48px)}
+  *,*::before,*::after{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;background:var(--bg);color:var(--text);font-family:var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;transition:background-color .25s var(--ease),color .25s var(--ease)}
+  h1,p{margin:0}
+  a{color:var(--accent-text)}
+  :focus-visible{outline:2px solid var(--focus);outline-offset:3px}
+  .sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+  .wrap{width:100%;max-width:1320px;margin:0 auto;padding:0 var(--gutter)}
+
+  /* Mark */
+  .frame{fill:none;stroke:var(--mark-frame);stroke-linejoin:miter}
+  .star{fill:var(--mark-star)}
+
+  /* Header */
+  header{border-bottom:1px solid var(--line)}
+  header .wrap{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .brand{display:inline-flex;align-items:center;gap:11px;text-decoration:none;color:var(--text)}
+  .brand svg{display:block;flex:none}
+  .word{font-weight:700;font-size:18px;letter-spacing:.16em;margin-right:-.16em;line-height:1;color:var(--text)}
+  .nav-r{display:flex;align-items:center;gap:10px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:44px;padding:0 18px;border:1px solid transparent;border-radius:2px;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;white-space:nowrap;cursor:pointer;transition:background-color .25s var(--ease),border-color .25s var(--ease),color .25s var(--ease)}
+  .btn-secondary{background:transparent;color:var(--text);border-color:var(--line-strong)}
+  .btn-secondary:hover{border-color:var(--text)}
+  .btn-primary{background:var(--accent);color:var(--on-accent)}
+  .btn-primary:hover{background:var(--accent-hover)}
+  .btn[disabled]{opacity:.55;cursor:progress}
+  .icon-btn{width:44px;padding:0}
+  .icon{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:square;stroke-linejoin:miter}
+  .theme-toggle .i-sun{display:none}
+  :root:not([data-theme="light"]) .theme-toggle .i-moon{display:none}
+  :root:not([data-theme="light"]) .theme-toggle .i-sun{display:block}
+  @media (prefers-color-scheme: light){
+    :root:not([data-theme="dark"]) .theme-toggle .i-sun{display:none}
+    :root:not([data-theme="dark"]) .theme-toggle .i-moon{display:block}
+  }
+
+  /* Hero */
+  main{flex:1;display:flex;position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+  .br{position:absolute;width:22px;height:22px;border:0 solid var(--accent);pointer-events:none}
+  .br.tl{top:20px;left:20px;border-top-width:1px;border-left-width:1px}
+  .br.tr{top:20px;right:20px;border-top-width:1px;border-right-width:1px}
+  .br.bl{bottom:20px;left:20px;border-bottom-width:1px;border-left-width:1px}
+  .br.brr{bottom:20px;right:20px;border-bottom-width:1px;border-right-width:1px}
+  .deco{position:absolute;width:min(40vw,580px);height:auto;right:-6vw;top:50%;transform:translateY(-50%);pointer-events:none}
+  .deco .frame{stroke-width:.5}
+  .hero{position:relative;display:flex;flex-direction:column;justify-content:center;gap:28px;padding-top:clamp(72px,10vh,128px);padding-bottom:clamp(72px,10vh,112px)}
+  .eyebrow{display:flex;align-items:center;gap:14px;font-family:var(--mono);font-size:11px;line-height:1.5;letter-spacing:.26em;text-transform:uppercase;color:var(--accent-text)}
+  .eyebrow::before{content:'';width:40px;height:1px;background:var(--accent);flex:none}
+  h1{font-weight:600;font-size:clamp(40px,7vw,112px);line-height:.96;letter-spacing:-.03em}
+  h1 span{display:block}
+  .accent{color:var(--accent-text)}
+  .sub{font-family:var(--mono);font-size:clamp(14px,1.2vw,16px);line-height:1.65;color:var(--text-2);max-width:52ch;text-wrap:pretty}
+
+  /* Form */
+  form{display:flex;gap:10px;max-width:520px;margin-top:8px}
+  .input{flex:1 1 auto;min-width:0;height:52px;padding:0 16px;background:var(--surface);border:1px solid var(--line-strong);border-radius:2px;color:var(--text);font-family:var(--sans);font-size:16px;appearance:none;-webkit-appearance:none;transition:border-color .25s var(--ease)}
+  .input::placeholder{color:var(--text-3)}
+  .input:hover{border-color:var(--text-3)}
+  .input:focus-visible{outline:2px solid var(--focus);outline-offset:0;border-color:var(--focus)}
+  form .btn{height:52px;padding:0 24px;font-size:12px}
+  .status{min-height:1.65em;font-family:var(--mono);font-size:13px;line-height:1.65;color:var(--text-2)}
+  .status.ok{color:var(--success)}
+  .status.err{color:var(--danger)}
+
+  /* Footer */
+  footer .wrap{min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;padding-top:16px;padding-bottom:16px;font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--text-2)}
+  .pulse{display:inline-flex;align-items:center;gap:10px}
+  .pulse::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);animation:blink 2.4s var(--ease) infinite}
+
+  /* Entrance */
+  .rise{animation:rise .8s var(--ease) both}
+  .rise:nth-child(2){animation-delay:.06s}.rise:nth-child(3){animation-delay:.12s}.rise:nth-child(4){animation-delay:.18s}.rise:nth-child(5){animation-delay:.24s}
+  .deco{animation:fade 1.6s var(--ease) both .2s}
+  @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  @keyframes fade{from{opacity:0}to{opacity:1}}
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+
+  @media (max-width:860px){
+    .deco{width:340px;right:-120px;top:auto;bottom:-70px;transform:none;opacity:.5}
+  }
+  @media (max-width:560px){
+    .deco{display:none}
+    form{flex-direction:column}
+    form .btn{width:100%}
+    .input{width:100%}
+    .eyebrow{letter-spacing:.22em}
+    .eyebrow::before{display:none}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="The Nova Agency home">
+      <svg width="26" height="26" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+        <path class="frame" stroke-width="7" d="M50 4 L96 50 L50 96 L4 50 Z"/>
+        <path class="star" d="M50 22 C52.5 40 60 47.5 78 50 C60 52.5 52.5 60 50 78 C47.5 60 40 52.5 22 50 C40 47.5 47.5 40 50 22 Z"/>
+      </svg>
+      <span class="word">NOVA</span>
+    </a>
+    <div class="nav-r">
+      <button type="button" class="btn btn-secondary icon-btn theme-toggle" id="theme-toggle" aria-label="Switch colour theme">
+        <svg class="icon i-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2.5V5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8"/></svg>
+        <svg class="icon i-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
+      </button>
+      <a class="btn btn-secondary login" href="https://app.soloai.co.uk">Log In</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <span class="br tl" aria-hidden="true"></span><span class="br tr" aria-hidden="true"></span>
+  <span class="br bl" aria-hidden="true"></span><span class="br brr" aria-hidden="true"></span>
+  <svg class="deco" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+    <path class="frame" d="M50 4 L96 50 L50 96 L4 50 Z"/>
+    <path class="star" d="M50 22 C52.5 40 60 47.5 78 50 C60 52.5 52.5 60 50 78 C47.5 60 40 52.5 22 50 C40 47.5 47.5 40 50 22 Z"/>
+  </svg>
+  <div class="wrap hero">
+    <p class="eyebrow rise">The Nova Agency — Relaunching 2026</p>
+    <h1 class="rise"><span>Technical craft.</span> <span class="accent">Intelligent edge.</span></h1>
+    <p class="sub rise">Web design and marketing engineered like infrastructure, with AI agents on the repetitive work and people on the judgement.</p>
+    <form class="rise" id="lead-form" novalidate>
+      <label for="email" class="sr-only">Email address</label>
+      <input class="input" id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@company.com" required aria-describedby="form-status">
+      <button class="btn btn-primary" type="submit">Notify me</button>
+    </form>
+    <p class="status rise" id="form-status" role="status" aria-live="polite"></p>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="pulse">Relaunching 2026</span>
+    <span>© <span id="year">2026</span> The Nova Agency</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var mq = window.matchMedia ? window.matchMedia('(prefers-color-scheme: light)') : null;
+
+  // Theme toggle: explicit choice is stored; with no choice the OS preference applies.
+  var toggle = document.getElementById('theme-toggle');
+  function current() {
+    var t = root.getAttribute('data-theme');
+    if (t === 'light' || t === 'dark') return t;
+    return mq && mq.matches ? 'light' : 'dark';
+  }
+  function label() {
+    var next = current() === 'light' ? 'dark' : 'light';
+    toggle.setAttribute('aria-label', 'Switch to ' + next + ' theme');
+    toggle.setAttribute('title', 'Switch to ' + next + ' theme');
+  }
+  toggle.addEventListener('click', function () {
+    var next = current() === 'light' ? 'dark' : 'light';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('nova-theme', next); } catch (e) {}
+    label();
+  });
+  if (mq && mq.addEventListener) mq.addEventListener('change', label);
+  label();
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Lead capture.
+  var form = document.getElementById('lead-form');
+  var input = document.getElementById('email');
+  var status = document.getElementById('form-status');
+  var button = form.querySelector('button');
+  function say(msg, cls) { status.textContent = msg; status.className = 'status' + (cls ? ' ' + cls : ''); }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var email = input.value.trim();
+    if (!email || !input.checkValidity()) {
+      input.setAttribute('aria-invalid', 'true');
+      say('Enter a valid email address.', 'err');
+      input.focus();
+      return;
+    }
+    input.removeAttribute('aria-invalid');
+    button.disabled = true;
+    say('Sending…');
+    fetch('/api/lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email, source: 'thenovaagency.com' })
+    }).then(function (res) {
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      form.reset();
+      say('You’re on the list — we’ll be in touch.', 'ok');
+    }).catch(function () {
+      say('Something went wrong — try again in a moment.', 'err');
+    }).then(function () { button.disabled = false; });
+  });
+})();
+</script>
+</body>
+</html>
