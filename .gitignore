@@ -38,3 +38,6 @@ Thumbs.db
 .dmypy.json
 dmypy.json
 .pyre/
+
+# Brand kit: keep token/manifest JSON
+!brand-kit/**/*.json
